@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSync — Instantly See Your Skills Gap</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(17, 24, 39, 0.82);
+      --panel-2: rgba(255, 255, 255, 0.05);
+      --text: #e5e7eb;
+      --muted: #a5b4fc;
+      --subtle: #cbd5e1;
+      --accent: #7c3aed;
+      --accent-2: #22c55e;
+      --warn: #f59e0b;
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 25%),
+        linear-gradient(180deg, #050816 0%, #0b1020 45%, #0f172a 100%);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 64px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      font-size: 1.05rem;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #8b5cf6, #22c55e);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 24px rgba(124, 58, 237, 0.32);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .nav a {
+      color: var(--subtle);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+      padding: 26px 0 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: #dbeafe;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      max-width: 12ch;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #f8fafc, #c4b5fd 35%, #86efac 70%, #f8fafc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subheadline {
+      margin: 18px 0 26px;
+      font-size: 1.12rem;
+      color: #dbe4ff;
+      max-width: 58ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin: 24px 0 16px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #7c3aed, #22c55e);
+      box-shadow: 0 18px 36px rgba(124, 58, 237, 0.26);
+    }
+
+    .btn-secondary {
+      color: #eef2ff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .trust {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .mock-wrap {
+      padding: 18px;
+    }
+
+    .browser {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid var(--line);
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+      margin-right: 8px;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    .browser-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .listing {
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+    }
+
+    .listing h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .listing p, .mini, .report p, .feature p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      background: rgba(124, 58, 237, 0.14);
+      color: #ede9fe;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    .overlay {
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(124, 58, 237, 0.18), rgba(255,255,255,0.04));
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .overlay-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #dcfce7;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .section {
+      padding: 24px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+    }
+
+    .grid-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .feature {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .report {
+      display: grid;
+      gap: 12px;
+    }
+
+    .report-block {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #22c55e, #7c3aed);
+    }
+
+    .footer-cta {
+      margin-top: 24px;
+      padding: 28px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(34,197,94,0.12));
+    }
+
+    .footer-cta h2 {
+      margin: 0 0 8px;
+      font-size: 1.7rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 960px) {
+      .hero, .sections {
+        grid-template-columns: 1fr;
+      }
+      h1 { max-width: 14ch; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 20px, 1180px); }
+      .grid-features, .report-grid { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <div class="brand"><div class="logo">S</div> SkillSync</div>
+      <a href="#get-started">Get started</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Browser extension for job seekers • resume-to-job analysis in seconds</div>
+          <h1><span class="gradient">See your skills gap</span> before you apply.</h1>
+          <p class="subheadline">
+            SkillSync compares your resume to any job posting and instantly shows matched skills, missing requirements,
+            and exactly how to close the gap—right inside your browsing workflow.
+          </p>
+
+          <div class="cta-row" id="get-started">
+            <a class="btn btn-primary" href="#mock">Install the extension</a>
+            <a class="btn btn-secondary" href="#features">View feature highlights</a>
+          </div>
+
+          <div class="trust">
+            <span>Built for early-career job seekers</span>
+            <span>Ideal for career switchers</span>
+            <span>Fast feedback on LinkedIn, Indeed, and Glassdoor</span>
+          </div>
+        </div>
+
+        <div class="card browser" id="mock">
+          <div class="browser-top">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            Job posting analysis — SkillSync overlay
+          </div>
+          <div class="browser-body">
+            <div class="listing">
+              <h3>Junior Product Analyst</h3>
+              <p>Acme Health is looking for someone with strong SQL, data visualization, stakeholder communication, and a willingness to learn experimentation workflows.</p>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">Tableau</span>
+                <span class="chip">A/B Testing</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Healthcare data</span>
+              </div>
+            </div>
+
+            <div class="overlay">
+              <div class="overlay-head">
+                <strong>SkillSync analysis</strong>
+                <span class="pill">76% match</span>
+              </div>
+              <p class="mini">Your resume matches core analytics and communication requirements. The biggest gaps are experiment design and dashboard tooling.</p>
+              <div class="report-grid">
+                <div class="stat">
+                  <strong>Matched</strong>
+                  <div>SQL, Python, communication</div>
+                </div>
+                <div class="stat">
+                  <strong>Missing</strong>
+                  <div>Tableau, A/B testing</div>
+                </div>
+                <div class="stat">
+                  <strong>Priority</strong>
+                  <div>Dashboards + experimentation</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sections">
+        <div class="card section" id="features">
+          <h2>Everything you need to understand the gap</h2>
+          <p class="small">A simple browser-extension workflow that turns job descriptions into actionable next steps.</p>
+          <div class="grid-features">
+            <div class="feature">
+              <h3>Resume Upload</h3>
+              <p>Upload PDF or DOCX resumes to extract skills, experience, and keywords.</p>
+            </div>
+            <div class="feature">
+              <h3>Mock Job Posting Analysis</h3>
+              <p>Preview how the extension reads role requirements from a listing before using it live.</p>
+            </div>
+            <div class="feature">
+              <h3>Skills Gap Report</h3>
+              <p>See matched skills, missing skills, and the most important areas to improve.</p>
+            </div>
+            <div class="feature">
+              <h3>Gap Closure Suggestions</h3>
+              <p>Get recommended courses, projects, certifications, and resume updates.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card section">
+          <h2>Sample skills-gap report</h2>
+          <div class="report">
+            <div class="report-block">
+              <p><strong>Role:</strong> Data Analyst I</p>
+              <p><strong>Match score:</strong> 68%</p>
+              <div class="bar"><div class="fill" style="width:68%"></div></div>
+            </div>
+            <div class="report-block">
+              <p><strong>Matched skills:</strong> Excel, SQL basics, stakeholder communication</p>
+            </div>
+            <div class="report-block">
+              <p><strong>Missing skills:</strong> Tableau, statistics, experimentation, dashboard design</p>
+            </div>
+            <div class="report-block">
+              <p><strong>How to close the gap:</strong> Build a Tableau portfolio project, take a statistics refresher, and add one metrics-focused resume bullet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card footer-cta">
+        <h2>Install SkillSync and start applying with clarity</h2>
+        <p class="small">Know what hiring managers want, what you already have, and what to do next.</p>
+        <div class="cta-row" style="justify-content:center; margin-bottom:0;">
+          <a class="btn btn-primary" href="#">Get started</a>
+          <a class="btn btn-secondary" href="#">Join the waitlist</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
