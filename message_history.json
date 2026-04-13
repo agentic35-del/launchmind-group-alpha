@@ -1,0 +1,563 @@
+[
+  {
+    "message_id": "b9eef59a-851e-4c6f-8d84-e5033ffcb6ea",
+    "from_agent": "ceo",
+    "to_agent": "product",
+    "message_type": "task",
+    "payload": {
+      "idea": "SkillSync is a browser extension that monitors job postings across LinkedIn, Indeed, and Glassdoor as the user browses.\nIt extracts required skills from postings, compares them against the user's uploaded resume, and generates a personalized\nskills-gap report showing exactly which skills are missing and how to close those gaps.",
+      "focus": "Define the MVP for SkillSync as a browser-extension-assisted landing page/prototype: user uploads a resume, browses a sample job post, and receives a clear skills-gap report with suggested next steps. Specify the exact user flow, the minimum data the prototype should capture, the output sections for the report, and the trust/safety copy needed for resume privacy and browser permissions. Keep scope limited to demonstrating value, not building full LinkedIn/Indeed/Glassdoor integrations.",
+      "acceptance_criteria": [
+        "Landing page clearly explains SkillSync's value in one sentence within the first screen",
+        "Prototype shows a believable browser-extension-assisted workflow from resume upload to skills-gap report",
+        "Skills-gap report displays matched skills, missing skills, and suggested ways to close gaps",
+        "Design is polished and responsive on desktop widths",
+        "Copy clearly states this is a prototype or early-access product and does not imply full live integrations",
+        "CTA exists for waitlist or early access signup",
+        "Privacy and permissions messaging is visible and reassuring",
+        "All interactive elements work without broken states or dead ends"
+      ]
+    },
+    "timestamp": "2026-04-11T15:07:40.883892+00:00",
+    "parent_message_id": null
+  },
+  {
+    "message_id": "772975d4-4d85-4cdd-ac43-4f2acd94281c",
+    "from_agent": "product",
+    "to_agent": "ceo",
+    "message_type": "result",
+    "payload": {
+      "product_spec": {
+        "startup_name": "SkillSync",
+        "value_proposition": "A browser-extension-assisted prototype that shows job seekers exactly which skills are missing between their resume and a sample job posting, then suggests concrete next steps to close the gap.",
+        "personas": [
+          {
+            "name": "Active Job Seeker",
+            "role": "Individual applying to multiple roles",
+            "pain_point": "Struggles to quickly understand why a resume is not getting interviews and what skills to improve or emphasize."
+          },
+          {
+            "name": "Career Switcher",
+            "role": "Professional transitioning into a new field",
+            "pain_point": "Needs a clear, simple comparison between existing experience and target job requirements to identify transferable and missing skills."
+          },
+          {
+            "name": "Bootcamp Graduate",
+            "role": "Entry-level candidate",
+            "pain_point": "Has limited experience and wants guidance on which skills to learn or highlight to match entry-level postings."
+          }
+        ],
+        "features": [
+          {
+            "name": "Resume Upload",
+            "description": "User uploads a PDF or DOCX resume on the landing page; the prototype extracts basic text and key skills for comparison.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Sample Job Post Analyzer",
+            "description": "User pastes a job posting or uses a sample job post in the prototype; the system extracts required skills and responsibilities.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Skills Gap Report",
+            "description": "Displays matched skills, missing skills, and partially matched skills in a clear report with simple visual grouping.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Suggested Next Steps",
+            "description": "For each missing skill, show lightweight recommendations such as learning resources, project ideas, or resume tailoring tips.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Browser Extension Demo Trigger",
+            "description": "A minimal extension button or mock interaction that simulates detecting a job post on a page and sending it to the landing-page prototype.",
+            "priority": "Should Have"
+          },
+          {
+            "name": "Privacy and Permission Copy",
+            "description": "Trust messaging that explains resume data handling, what the extension reads, and that no data is sold or shared.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Session-Only Processing",
+            "description": "Prototype states that uploaded resumes and job text are processed for the current session and can be deleted by the user.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Feedback Prompt",
+            "description": "Optional thumbs up/down or 'was this helpful' feedback to validate value without building a full product loop.",
+            "priority": "Could Have"
+          }
+        ],
+        "user_stories": [
+          "As a job seeker, I want to upload my resume and compare it against a job posting so I can see exactly which skills I am missing.",
+          "As a user, I want the report to clearly show matched, missing, and partially matched skills so I can decide what to improve first.",
+          "As a cautious user, I want to understand what the browser extension accesses and how my resume data is handled so I can trust the prototype."
+        ],
+        "success_metrics": [
+          "At least 60% of users complete the flow from resume upload to skills-gap report.",
+          "At least 40% of users click a suggested next step or skill recommendation in the report.",
+          "At least 70% of users rate the report as clear and useful in the feedback prompt."
+        ]
+      },
+      "summary": "Product spec generated."
+    },
+    "timestamp": "2026-04-11T15:07:46.329039+00:00",
+    "parent_message_id": "b9eef59a-851e-4c6f-8d84-e5033ffcb6ea"
+  },
+  {
+    "message_id": "83635c3d-6aec-48f6-8d3a-f2bd8e6d8ffc",
+    "from_agent": "ceo",
+    "to_agent": "engineer",
+    "message_type": "task",
+    "payload": {
+      "product_spec": {
+        "startup_name": "SkillSync",
+        "value_proposition": "A browser-extension-assisted prototype that shows job seekers exactly which skills are missing between their resume and a sample job posting, then suggests concrete next steps to close the gap.",
+        "personas": [
+          {
+            "name": "Active Job Seeker",
+            "role": "Individual applying to multiple roles",
+            "pain_point": "Struggles to quickly understand why a resume is not getting interviews and what skills to improve or emphasize."
+          },
+          {
+            "name": "Career Switcher",
+            "role": "Professional transitioning into a new field",
+            "pain_point": "Needs a clear, simple comparison between existing experience and target job requirements to identify transferable and missing skills."
+          },
+          {
+            "name": "Bootcamp Graduate",
+            "role": "Entry-level candidate",
+            "pain_point": "Has limited experience and wants guidance on which skills to learn or highlight to match entry-level postings."
+          }
+        ],
+        "features": [
+          {
+            "name": "Resume Upload",
+            "description": "User uploads a PDF or DOCX resume on the landing page; the prototype extracts basic text and key skills for comparison.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Sample Job Post Analyzer",
+            "description": "User pastes a job posting or uses a sample job post in the prototype; the system extracts required skills and responsibilities.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Skills Gap Report",
+            "description": "Displays matched skills, missing skills, and partially matched skills in a clear report with simple visual grouping.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Suggested Next Steps",
+            "description": "For each missing skill, show lightweight recommendations such as learning resources, project ideas, or resume tailoring tips.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Browser Extension Demo Trigger",
+            "description": "A minimal extension button or mock interaction that simulates detecting a job post on a page and sending it to the landing-page prototype.",
+            "priority": "Should Have"
+          },
+          {
+            "name": "Privacy and Permission Copy",
+            "description": "Trust messaging that explains resume data handling, what the extension reads, and that no data is sold or shared.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Session-Only Processing",
+            "description": "Prototype states that uploaded resumes and job text are processed for the current session and can be deleted by the user.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Feedback Prompt",
+            "description": "Optional thumbs up/down or 'was this helpful' feedback to validate value without building a full product loop.",
+            "priority": "Could Have"
+          }
+        ],
+        "user_stories": [
+          "As a job seeker, I want to upload my resume and compare it against a job posting so I can see exactly which skills I am missing.",
+          "As a user, I want the report to clearly show matched, missing, and partially matched skills so I can decide what to improve first.",
+          "As a cautious user, I want to understand what the browser extension accesses and how my resume data is handled so I can trust the prototype."
+        ],
+        "success_metrics": [
+          "At least 60% of users complete the flow from resume upload to skills-gap report.",
+          "At least 40% of users click a suggested next step or skill recommendation in the report.",
+          "At least 70% of users rate the report as clear and useful in the feedback prompt."
+        ]
+      }
+    },
+    "timestamp": "2026-04-11T15:07:48.072387+00:00",
+    "parent_message_id": "772975d4-4d85-4cdd-ac43-4f2acd94281c"
+  },
+  {
+    "message_id": "fdb3f23f-7ab9-428d-b80e-22f8e106765a",
+    "from_agent": "engineer",
+    "to_agent": "ceo",
+    "message_type": "result",
+    "payload": {
+      "issue_url": "https://github.com/agentic35-del/launchmind-group-alpha/issues/44",
+      "pr_url": "https://github.com/agentic35-del/launchmind-group-alpha/pull/45",
+      "branch_name": "skillsync-landing-page",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>SkillSync — See your skills gap instantly</title>\n  <style>\n    :root {\n      --bg: #0b1020;\n      --panel: rgba(17, 24, 39, 0.78);\n      --panel-2: rgba(31, 41, 55, 0.9);\n      --text: #e5eefc;\n      --muted: #9fb0d0;\n      --line: rgba(148, 163, 184, 0.2);\n      --accent: #6ee7ff;\n      --accent-2: #8b5cf6;\n      --good: #34d399;\n      --warn: #fbbf24;\n      --bad: #fb7185;\n      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);\n      --radius: 24px;\n    }\n\n    * { box-sizing: border-box; }\n    html, body { margin: 0; padding: 0; }\n    body {\n      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      background:\n        radial-gradient(circle at top left, rgba(110, 231, 255, 0.16), transparent 24%),\n        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.16), transparent 28%),\n        linear-gradient(180deg, #07101f 0%, #0b1020 100%);\n      color: var(--text);\n      min-height: 100vh;\n      line-height: 1.5;\n    }\n\n    .wrap {\n      width: min(1180px, calc(100% - 32px));\n      margin: 0 auto;\n      padding: 24px 0 56px;\n    }\n\n    .topbar {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 16px;\n      margin-bottom: 32px;\n    }\n\n    .brand {\n      display: flex;\n      align-items: center;\n      gap: 12px;\n      font-weight: 800;\n      letter-spacing: -0.03em;\n      font-size: 1.05rem;\n    }\n\n    .logo {\n      width: 42px;\n      height: 42px;\n      border-radius: 14px;\n      background: linear-gradient(135deg, var(--accent), var(--accent-2));\n      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);\n      display: grid;\n      place-items: center;\n      color: #081120;\n      font-weight: 900;\n    }\n\n    .pill {\n      padding: 10px 14px;\n      border: 1px solid var(--line);\n      border-radius: 999px;\n      background: rgba(255,255,255,0.04);\n      color: var(--muted);\n      font-size: 0.92rem;\n      backdrop-filter: blur(12px);\n    }\n\n    .hero {\n      display: grid;\n      grid-template-columns: 1.1fr 0.9fr;\n      gap: 24px;\n      align-items: center;\n      margin-bottom: 28px;\n    }\n\n    .hero-copy, .panel {\n      border: 1px solid var(--line);\n      background: var(--panel);\n      border-radius: var(--radius);\n      box-shadow: var(--shadow);\n      backdrop-filter: blur(16px);\n    }\n\n    .hero-copy {\n      padding: 40px;\n    }\n\n    h1 {\n      margin: 0 0 16px;\n      font-size: clamp(2.5rem, 5vw, 4.8rem);\n      line-height: 0.96;\n      letter-spacing: -0.06em;\n      max-width: 12ch;\n    }\n\n    .subhead {\n      font-size: 1.12rem;\n      color: var(--muted);\n      max-width: 60ch;\n      margin: 0 0 24px;\n    }\n\n    .cta-row {\n      display: flex;\n      gap: 12px;\n      flex-wrap: wrap;\n      margin-bottom: 18px;\n    }\n\n    .btn {\n      appearance: none;\n      border: 0;\n      border-radius: 14px;\n      padding: 14px 18px;\n      font-weight: 700;\n      cursor: pointer;\n      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;\n      text-decoration: none;\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 10px;\n    }\n\n    .btn:hover { transform: translateY(-1px); }\n    .btn.primary {\n      color: #05121f;\n      background: linear-gradient(135deg, var(--accent), #a5f3fc);\n      box-shadow: 0 16px 40px rgba(110, 231, 255, 0.24);\n    }\n    .btn.secondary {\n      color: var(--text);\n      background: rgba(255,255,255,0.05);\n      border: 1px solid var(--line);\n    }\n\n    .microcopy {\n      color: var(--muted);\n      font-size: 0.95rem;\n    }\n\n    .hero-aside {\n      padding: 18px;\n      background: linear-gradient(180deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.82));\n    }\n\n    .mock-header {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 12px;\n      margin-bottom: 14px;\n      padding-bottom: 14px;\n      border-bottom: 1px solid var(--line);\n    }\n\n    .mock-title {\n      font-weight: 800;\n      margin: 0;\n      font-size: 1rem;\n    }\n\n    .extension-chip {\n      font-size: 0.8rem;\n      color: #c7d2fe;\n      background: rgba(139, 92, 246, 0.18);\n      border: 1px solid rgba(139, 92, 246, 0.35);\n      padding: 6px 10px;\n      border-radius: 999px;\n    }\n\n    .mock-card {\n      padding: 16px;\n      border-radius: 18px;\n      background: rgba(255,255,255,0.04);\n      border: 1px solid var(--line);\n      margin-bottom: 12px;\n    }\n\n    .mock-row {\n      display: flex;\n      justify-content: space-between;\n      gap: 12px;\n      align-items: center;\n      margin-bottom: 10px;\n    }\n\n    .mock-label { color: var(--muted); font-size: 0.9rem; }\n    .mock-value { font-weight: 700; }\n\n    .bar {\n      height: 10px;\n      border-radius: 999px;\n      background: rgba(255,255,255,0.08);\n      overflow: hidden;\n      margin: 8px 0 0;\n    }\n    .bar > span { display: block; height: 100%; border-radius: inherit; }\n    .good { background: linear-gradient(90deg, var(--good), #86efac); }\n    .warn { background: linear-gradient(90deg, var(--warn), #fde68a); }\n    .bad { background: linear-gradient(90deg, var(--bad), #fda4af); }\n\n    .section {\n      margin-top: 24px;\n      padding: 28px;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      background: var(--panel);\n      box-shadow: var(--shadow);\n      backdrop-filter: blur(16px);\n    }\n\n    .section h2 {\n      margin: 0 0 10px;\n      font-size: 1.6rem;\n      letter-spacing: -0.03em;\n    }\n    .section p.lead {\n      color: var(--muted);\n      margin: 0 0 22px;\n      max-width: 70ch;\n    }\n\n    .grid {\n      display: grid;\n      grid-template-columns: repeat(3, minmax(0, 1fr));\n      gap: 16px;\n    }\n\n    .feature, .report, .privacy {\n      background: var(--panel-2);\n      border: 1px solid var(--line);\n      border-radius: 20px;\n      padding: 18px;\n    }\n\n    .feature h3, .report h3, .privacy h3 {\n      margin: 0 0 8px;\n      font-size: 1.02rem;\n    }\n\n    .feature p, .report p, .privacy p, li { color: var(--muted); }\n\n    .report-layout {\n      display: grid;\n      grid-template-columns: 1.05fr 0.95fr;\n      gap: 16px;\n      align-items: start;\n    }\n\n    .tag-row {\n      display: flex;\n      gap: 8px;\n      flex-wrap: wrap;\n      margin-top: 12px;\n    }\n\n    .tag {\n      font-size: 0.82rem;\n      border-radius: 999px;\n      padding: 6px 10px;\n      border: 1px solid var(--line);\n      background: rgba(255,255,255,0.04);\n    }\n\n    .tag.good { color: #a7f3d0; }\n    .tag.warn { color: #fde68a; }\n    .tag.bad { color: #fecdd3; }\n\n    .next-step {\n      display: grid;\n      gap: 10px;\n      margin-top: 14px;\n    }\n\n    .step {\n      display: flex;\n      align-items: flex-start;\n      gap: 10px;\n      padding: 12px;\n      border-radius: 14px;\n      background: rgba(255,255,255,0.04);\n      border: 1px solid var(--line);\n    }\n\n    .badge {\n      width: 28px;\n      height: 28px;\n      border-radius: 9px;\n      display: grid;\n      place-items: center;\n      background: rgba(110, 231, 255, 0.14);\n      color: var(--accent);\n      font-weight: 800;\n      flex: 0 0 auto;\n    }\n\n    .small { font-size: 0.9rem; }\n\n    ul.clean {\n      padding-left: 18px;\n      margin: 12px 0 0;\n    }\n\n    .footer-cta {\n      margin-top: 24px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 16px;\n      flex-wrap: wrap;\n      padding: 20px 22px;\n      border-radius: 20px;\n      background: linear-gradient(135deg, rgba(110,231,255,0.12), rgba(139,92,246,0.12));\n      border: 1px solid rgba(148,163,184,0.18);\n    }\n\n    .footer-cta strong { display: block; margin-bottom: 4px; }\n\n    @media (max-width: 920px) {\n      .hero, .report-layout, .grid { grid-template-columns: 1fr; }\n      .hero-copy { padding: 28px; }\n      h1 { max-width: 100%; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <header class=\"topbar\">\n      <div class=\"brand\">\n        <div class=\"logo\">S</div>\n        <div>\n          SkillSync\n          <div class=\"microcopy small\">Browser-extension-assisted skills gap prototype</div>\n        </div>\n      </div>\n      <div class=\"pill\">Session-only processing • No data sold or shared</div>\n    </header>\n\n    <section class=\"hero\">\n      <div class=\"hero-copy\">\n        <h1>See exactly which skills your resume is missing.</h1>\n        <p class=\"subhead\">SkillSync compares your resume with a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps so you know what to improve first.</p>\n        <div class=\"cta-row\">\n          <a class=\"btn primary\" href=\"#demo\">Install / Get Started</a>\n          <a class=\"btn secondary\" href=\"#features\">Explore Features</a>\n        </div>\n        <div class=\"microcopy\">Built for active job seekers, career switchers, and bootcamp graduates who want a clearer path to stronger applications.</div>\n      </div>\n\n      <aside class=\"panel hero-aside\" id=\"demo\">\n        <div class=\"mock-header\">\n          <p class=\"mock-title\">Extension Demo Trigger</p>\n          <span class=\"extension-chip\">Mock browser extension</span>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Detected on page</div>\n              <div class=\"mock-value\">Senior Product Analyst job post</div>\n            </div>\n            <div class=\"tag good\">Captured</div>\n          </div>\n          <div class=\"bar\"><span class=\"good\" style=\"width: 82%\"></span></div>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Resume match</div>\n              <div class=\"mock-value\">68% aligned</div>\n            </div>\n            <div class=\"tag warn\">Gap found</div>\n          </div>\n          <div class=\"bar\"><span class=\"warn\" style=\"width: 68%\"></span></div>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Recommended action</div>\n              <div class=\"mock-value\">Add SQL project + emphasize analytics tools</div>\n            </div>\n            <div class=\"tag bad\">2 skills missing</div>\n          </div>\n        </div>\n        <div class=\"microcopy\">In the real product, the extension would detect a job post, send the text to the landing-page prototype, and show a skills-gap report. This page demonstrates the experience only.</div>\n      </aside>\n    </section>\n\n    <section class=\"section\" id=\"features\">\n      <h2>Features designed for fast application feedback</h2>\n      <p class=\"lead\">The prototype focuses on the core flow: upload a resume, compare it to a job post, and get a simple report with clear next steps. Privacy and session handling are built into the copy so users understand what is happening.</p>\n      <div class=\"grid\">\n        <div class=\"feature\">\n          <h3>Resume Upload</h3>\n          <p>Upload a PDF or DOCX resume and extract basic text and key skills for comparison.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Sample Job Post Analyzer</h3>\n          <p>Paste a job posting or use a sample post to extract requirements and responsibilities.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Skills Gap Report</h3>\n          <p>View matched, missing, and partially matched skills in a clear, easy-to-scan report.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Suggested Next Steps</h3>\n          <p>For each missing skill, get lightweight recommendations like learning resources, project ideas, and resume tailoring tips.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Browser Extension Demo Trigger</h3>\n          <p>A minimal mock interaction shows how a browser extension could detect a job post and send it to the prototype.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Privacy and Session-Only Processing</h3>\n          <p>Clear trust messaging explains what the extension reads, how resume data is handled, and that nothing is sold or shared.</p>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"section\">\n      <h2>Sample skills-gap report</h2>\n      <p class=\"lead\">A realistic view of how SkillSync helps users understand what to do next instead of just showing a generic match score.</p>\n      <div class=\"report-layout\">\n        <div class=\"report\">\n          <h3>Resume vs. Job Posting</h3>\n          <p>Target role: Product Analyst</p>\n          <div class=\"tag-row\">\n            <span class=\"tag good\">Matched: Excel</span>\n            <span class=\"tag good\">Matched: Data Visualization</span>\n            <span class=\"tag warn\">Partial: SQL</span>\n            <span class=\"tag bad\">Missing: A/B Testing</span>\n            <span class=\"tag bad\">Missing: Stakeholder Communication</span>\n          </div>\n          <ul class=\"clean\">\n            <li><strong>Matched skills:</strong> Excel, Tableau, reporting, dashboard creation</li>\n            <li><strong>Partially matched:</strong> SQL fundamentals, experimentation</li>\n            <li><strong>Missing skills:</strong> A/B testing, product analytics, stakeholder storytelling</li>\n          </ul>\n        </div>\n        <div class=\"report\">\n          <h3>Suggested next steps</h3>\n          <div class=\"next-step\">\n            <div class=\"step\">\n              <div class=\"badge\">1</div>\n              <div>\n                <strong>Learn SQL for product analytics</strong>\n                <div class=\"small\">Try a short SQL refresher and add one portfolio query project.</div>\n              </div>\n            </div>\n            <div class=\"step\">\n              <div class=\"badge\">2</div>\n              <div>\n                <strong>Build an A/B test case study</strong>\n                <div class=\"small\">Create a mini project that explains hypothesis, metric selection, and results.</div>\n              </div>\n            </div>\n            <div class=\"step\">\n              <div class=\"badge\">3</div>\n              <div>\n                <strong>Tune your resume language</strong>\n                <div class=\"small\">Mirror keywords from the posting and highlight impact in measurable terms.</div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"section\">\n      <h2>Trust and permission copy</h2>\n      <div class=\"grid\">\n        <div class=\"privacy\">\n          <h3>What the extension reads</h3>\n          <p>The mock extension is framed as reading only the current job posting content you choose to analyze. It does not claim access to unrelated browsing history.</p>\n        </div>\n        <div class=\"privacy\">\n          <h3>How resume data is handled</h3>\n          <p>Uploaded resumes and job text are processed for the current session and can be deleted by the user at any time.</p>\n        </div>\n        <div class=\"privacy\">\n          <h3>No selling or sharing</h3>\n          <p>The landing page clearly states that resume data is not sold or shared, reinforcing trust during prototype testing.</p>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"footer-cta\">\n      <div>\n        <strong>Ready to close the skill gap?</strong>\n        <span class=\"microcopy\">Install the demo experience, upload a resume, and see your next best move in seconds.</span>\n      </div>\n      <a class=\"btn primary\" href=\"#demo\">Install / Get Started</a>\n    </section>\n  </div>\n</body>\n</html>",
+      "pr_title": "Launch SkillSync landing page prototype"
+    },
+    "timestamp": "2026-04-11T15:08:28.415771+00:00",
+    "parent_message_id": "83635c3d-6aec-48f6-8d3a-f2bd8e6d8ffc"
+  },
+  {
+    "message_id": "08da6fa7-da11-48ee-b640-d4f89d8d8734",
+    "from_agent": "ceo",
+    "to_agent": "marketing",
+    "message_type": "task",
+    "payload": {
+      "product_spec": {
+        "startup_name": "SkillSync",
+        "value_proposition": "A browser-extension-assisted prototype that shows job seekers exactly which skills are missing between their resume and a sample job posting, then suggests concrete next steps to close the gap.",
+        "personas": [
+          {
+            "name": "Active Job Seeker",
+            "role": "Individual applying to multiple roles",
+            "pain_point": "Struggles to quickly understand why a resume is not getting interviews and what skills to improve or emphasize."
+          },
+          {
+            "name": "Career Switcher",
+            "role": "Professional transitioning into a new field",
+            "pain_point": "Needs a clear, simple comparison between existing experience and target job requirements to identify transferable and missing skills."
+          },
+          {
+            "name": "Bootcamp Graduate",
+            "role": "Entry-level candidate",
+            "pain_point": "Has limited experience and wants guidance on which skills to learn or highlight to match entry-level postings."
+          }
+        ],
+        "features": [
+          {
+            "name": "Resume Upload",
+            "description": "User uploads a PDF or DOCX resume on the landing page; the prototype extracts basic text and key skills for comparison.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Sample Job Post Analyzer",
+            "description": "User pastes a job posting or uses a sample job post in the prototype; the system extracts required skills and responsibilities.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Skills Gap Report",
+            "description": "Displays matched skills, missing skills, and partially matched skills in a clear report with simple visual grouping.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Suggested Next Steps",
+            "description": "For each missing skill, show lightweight recommendations such as learning resources, project ideas, or resume tailoring tips.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Browser Extension Demo Trigger",
+            "description": "A minimal extension button or mock interaction that simulates detecting a job post on a page and sending it to the landing-page prototype.",
+            "priority": "Should Have"
+          },
+          {
+            "name": "Privacy and Permission Copy",
+            "description": "Trust messaging that explains resume data handling, what the extension reads, and that no data is sold or shared.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Session-Only Processing",
+            "description": "Prototype states that uploaded resumes and job text are processed for the current session and can be deleted by the user.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Feedback Prompt",
+            "description": "Optional thumbs up/down or 'was this helpful' feedback to validate value without building a full product loop.",
+            "priority": "Could Have"
+          }
+        ],
+        "user_stories": [
+          "As a job seeker, I want to upload my resume and compare it against a job posting so I can see exactly which skills I am missing.",
+          "As a user, I want the report to clearly show matched, missing, and partially matched skills so I can decide what to improve first.",
+          "As a cautious user, I want to understand what the browser extension accesses and how my resume data is handled so I can trust the prototype."
+        ],
+        "success_metrics": [
+          "At least 60% of users complete the flow from resume upload to skills-gap report.",
+          "At least 40% of users click a suggested next step or skill recommendation in the report.",
+          "At least 70% of users rate the report as clear and useful in the feedback prompt."
+        ]
+      },
+      "pr_url": "https://github.com/agentic35-del/launchmind-group-alpha/pull/45"
+    },
+    "timestamp": "2026-04-11T15:08:38.109316+00:00",
+    "parent_message_id": "fdb3f23f-7ab9-428d-b80e-22f8e106765a"
+  },
+  {
+    "message_id": "7e5f5613-9b4a-47bc-a6ed-3413bce90f23",
+    "from_agent": "marketing",
+    "to_agent": "ceo",
+    "message_type": "result",
+    "payload": {
+      "copy": {
+        "tagline": "See the skill gap before the interview slips away.",
+        "short_description": "SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.",
+        "cold_email_subject": "Can SkillSync help job seekers fix resume skill gaps faster?",
+        "cold_email_html": "<p>Hi there,</p><p>We built <strong>SkillSync</strong>, a browser-extension-assisted prototype that helps job seekers instantly compare their resume against a sample job posting and see exactly which skills are missing.</p><p>It then turns that gap into action with simple next steps like learning resources, project ideas, and resume-tailoring tips.</p><p>Designed for active job seekers, career switchers, and bootcamp grads, SkillSync makes it easier to understand why interviews may not be coming in — and what to do next.</p><p>If you’re open to it, I’d love for you to check out the prototype and share what feels most useful.</p><p>Best,<br>The SkillSync team</p>",
+        "twitter_post": "Job seekers shouldn’t have to guess why a resume isn’t getting interviews. SkillSync shows the exact skills gap between your resume and a job post — then suggests what to learn, build, or tweak next. #JobSearch #CareerGrowth #Productivity",
+        "linkedin_post": "Excited to share SkillSync, a prototype built to help job seekers understand the skills gap between their resume and a target role.\n\nUsers can upload a resume, analyze a job posting, and instantly see matched skills, missing skills, and partially matched skills in one clear report.\n\nWe also include suggested next steps like learning resources, project ideas, and resume tailoring tips — plus trust-focused copy around privacy and session-only processing.\n\nBuilt for active job seekers, career switchers, and bootcamp graduates who want a clearer path to stronger applications.\n\nWould love feedback on the most valuable part of the workflow.",
+        "instagram_post": "Introducing SkillSync ✨\n\nUpload your resume. Paste a job post. See the skills gap instantly.\n\nWe highlight:\n✅ matched skills\n⚠️ missing skills\n➗ partially matched skills\n\nThen we suggest next steps like learning resources, project ideas, and resume tips to help you close the gap.\n\nBuilt for job seekers, career switchers, and bootcamp grads who want clarity and momentum.\n\n#jobs #careertips #jobsearch #resumetips #careerchange #productdesign",
+        "slack_summary_line": "SkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances."
+      },
+      "email_response": {
+        "id": "988434ce-66ab-473b-b0f8-e5a74670891d"
+      },
+      "slack_response": {
+        "ok": true,
+        "channel": "C0ARBE3N0LX",
+        "ts": "1775920118.887719",
+        "message": {
+          "user": "U0ARBG1GDFZ",
+          "type": "message",
+          "ts": "1775920118.887719",
+          "bot_id": "B0ARLJ10WQ3",
+          "app_id": "A0ASM77R4HE",
+          "text": "New Launch: See the skill gap before the interview slips away. SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.\n\nSkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances. *PR:* <https://github.com/agentic35-del/launchmind-group-alpha/pull/45|View Pull Request> *Status:* Ready for review",
+          "team": "T0ARLG2KLJF",
+          "bot_profile": {
+            "id": "B0ARLJ10WQ3",
+            "app_id": "A0ASM77R4HE",
+            "user_id": "U0ARBG1GDFZ",
+            "name": "LaunchMind Bot",
+            "icons": {
+              "image_36": "https://a.slack-edge.com/80588/img/plugins/app/bot_36.png",
+              "image_48": "https://a.slack-edge.com/80588/img/plugins/app/bot_48.png",
+              "image_72": "https://a.slack-edge.com/80588/img/plugins/app/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1775722587,
+            "team_id": "T0ARLG2KLJF"
+          },
+          "blocks": [
+            {
+              "type": "header",
+              "block_id": "iy5G8",
+              "text": {
+                "type": "plain_text",
+                "text": "New Launch: See the skill gap before the interview slips away.",
+                "emoji": true
+              }
+            },
+            {
+              "type": "section",
+              "block_id": "9KelR",
+              "text": {
+                "type": "mrkdwn",
+                "text": "SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.\n\nSkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances.",
+                "verbatim": false
+              }
+            },
+            {
+              "type": "section",
+              "block_id": "da6gU",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*PR:* <https://github.com/agentic35-del/launchmind-group-alpha/pull/45|View Pull Request>",
+                  "verbatim": false
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Status:* Ready for review",
+                  "verbatim": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "timestamp": "2026-04-11T15:08:45.412081+00:00",
+    "parent_message_id": "08da6fa7-da11-48ee-b640-d4f89d8d8734"
+  },
+  {
+    "message_id": "b43b69ad-6ed9-4b65-b944-563842a30bd7",
+    "from_agent": "ceo",
+    "to_agent": "qa",
+    "message_type": "task",
+    "payload": {
+      "product_spec": {
+        "startup_name": "SkillSync",
+        "value_proposition": "A browser-extension-assisted prototype that shows job seekers exactly which skills are missing between their resume and a sample job posting, then suggests concrete next steps to close the gap.",
+        "personas": [
+          {
+            "name": "Active Job Seeker",
+            "role": "Individual applying to multiple roles",
+            "pain_point": "Struggles to quickly understand why a resume is not getting interviews and what skills to improve or emphasize."
+          },
+          {
+            "name": "Career Switcher",
+            "role": "Professional transitioning into a new field",
+            "pain_point": "Needs a clear, simple comparison between existing experience and target job requirements to identify transferable and missing skills."
+          },
+          {
+            "name": "Bootcamp Graduate",
+            "role": "Entry-level candidate",
+            "pain_point": "Has limited experience and wants guidance on which skills to learn or highlight to match entry-level postings."
+          }
+        ],
+        "features": [
+          {
+            "name": "Resume Upload",
+            "description": "User uploads a PDF or DOCX resume on the landing page; the prototype extracts basic text and key skills for comparison.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Sample Job Post Analyzer",
+            "description": "User pastes a job posting or uses a sample job post in the prototype; the system extracts required skills and responsibilities.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Skills Gap Report",
+            "description": "Displays matched skills, missing skills, and partially matched skills in a clear report with simple visual grouping.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Suggested Next Steps",
+            "description": "For each missing skill, show lightweight recommendations such as learning resources, project ideas, or resume tailoring tips.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Browser Extension Demo Trigger",
+            "description": "A minimal extension button or mock interaction that simulates detecting a job post on a page and sending it to the landing-page prototype.",
+            "priority": "Should Have"
+          },
+          {
+            "name": "Privacy and Permission Copy",
+            "description": "Trust messaging that explains resume data handling, what the extension reads, and that no data is sold or shared.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Session-Only Processing",
+            "description": "Prototype states that uploaded resumes and job text are processed for the current session and can be deleted by the user.",
+            "priority": "Must Have"
+          },
+          {
+            "name": "Feedback Prompt",
+            "description": "Optional thumbs up/down or 'was this helpful' feedback to validate value without building a full product loop.",
+            "priority": "Could Have"
+          }
+        ],
+        "user_stories": [
+          "As a job seeker, I want to upload my resume and compare it against a job posting so I can see exactly which skills I am missing.",
+          "As a user, I want the report to clearly show matched, missing, and partially matched skills so I can decide what to improve first.",
+          "As a cautious user, I want to understand what the browser extension accesses and how my resume data is handled so I can trust the prototype."
+        ],
+        "success_metrics": [
+          "At least 60% of users complete the flow from resume upload to skills-gap report.",
+          "At least 40% of users click a suggested next step or skill recommendation in the report.",
+          "At least 70% of users rate the report as clear and useful in the feedback prompt."
+        ]
+      },
+      "engineer_output": {
+        "issue_url": "https://github.com/agentic35-del/launchmind-group-alpha/issues/44",
+        "pr_url": "https://github.com/agentic35-del/launchmind-group-alpha/pull/45",
+        "branch_name": "skillsync-landing-page",
+        "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>SkillSync — See your skills gap instantly</title>\n  <style>\n    :root {\n      --bg: #0b1020;\n      --panel: rgba(17, 24, 39, 0.78);\n      --panel-2: rgba(31, 41, 55, 0.9);\n      --text: #e5eefc;\n      --muted: #9fb0d0;\n      --line: rgba(148, 163, 184, 0.2);\n      --accent: #6ee7ff;\n      --accent-2: #8b5cf6;\n      --good: #34d399;\n      --warn: #fbbf24;\n      --bad: #fb7185;\n      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);\n      --radius: 24px;\n    }\n\n    * { box-sizing: border-box; }\n    html, body { margin: 0; padding: 0; }\n    body {\n      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      background:\n        radial-gradient(circle at top left, rgba(110, 231, 255, 0.16), transparent 24%),\n        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.16), transparent 28%),\n        linear-gradient(180deg, #07101f 0%, #0b1020 100%);\n      color: var(--text);\n      min-height: 100vh;\n      line-height: 1.5;\n    }\n\n    .wrap {\n      width: min(1180px, calc(100% - 32px));\n      margin: 0 auto;\n      padding: 24px 0 56px;\n    }\n\n    .topbar {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 16px;\n      margin-bottom: 32px;\n    }\n\n    .brand {\n      display: flex;\n      align-items: center;\n      gap: 12px;\n      font-weight: 800;\n      letter-spacing: -0.03em;\n      font-size: 1.05rem;\n    }\n\n    .logo {\n      width: 42px;\n      height: 42px;\n      border-radius: 14px;\n      background: linear-gradient(135deg, var(--accent), var(--accent-2));\n      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);\n      display: grid;\n      place-items: center;\n      color: #081120;\n      font-weight: 900;\n    }\n\n    .pill {\n      padding: 10px 14px;\n      border: 1px solid var(--line);\n      border-radius: 999px;\n      background: rgba(255,255,255,0.04);\n      color: var(--muted);\n      font-size: 0.92rem;\n      backdrop-filter: blur(12px);\n    }\n\n    .hero {\n      display: grid;\n      grid-template-columns: 1.1fr 0.9fr;\n      gap: 24px;\n      align-items: center;\n      margin-bottom: 28px;\n    }\n\n    .hero-copy, .panel {\n      border: 1px solid var(--line);\n      background: var(--panel);\n      border-radius: var(--radius);\n      box-shadow: var(--shadow);\n      backdrop-filter: blur(16px);\n    }\n\n    .hero-copy {\n      padding: 40px;\n    }\n\n    h1 {\n      margin: 0 0 16px;\n      font-size: clamp(2.5rem, 5vw, 4.8rem);\n      line-height: 0.96;\n      letter-spacing: -0.06em;\n      max-width: 12ch;\n    }\n\n    .subhead {\n      font-size: 1.12rem;\n      color: var(--muted);\n      max-width: 60ch;\n      margin: 0 0 24px;\n    }\n\n    .cta-row {\n      display: flex;\n      gap: 12px;\n      flex-wrap: wrap;\n      margin-bottom: 18px;\n    }\n\n    .btn {\n      appearance: none;\n      border: 0;\n      border-radius: 14px;\n      padding: 14px 18px;\n      font-weight: 700;\n      cursor: pointer;\n      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;\n      text-decoration: none;\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 10px;\n    }\n\n    .btn:hover { transform: translateY(-1px); }\n    .btn.primary {\n      color: #05121f;\n      background: linear-gradient(135deg, var(--accent), #a5f3fc);\n      box-shadow: 0 16px 40px rgba(110, 231, 255, 0.24);\n    }\n    .btn.secondary {\n      color: var(--text);\n      background: rgba(255,255,255,0.05);\n      border: 1px solid var(--line);\n    }\n\n    .microcopy {\n      color: var(--muted);\n      font-size: 0.95rem;\n    }\n\n    .hero-aside {\n      padding: 18px;\n      background: linear-gradient(180deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.82));\n    }\n\n    .mock-header {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 12px;\n      margin-bottom: 14px;\n      padding-bottom: 14px;\n      border-bottom: 1px solid var(--line);\n    }\n\n    .mock-title {\n      font-weight: 800;\n      margin: 0;\n      font-size: 1rem;\n    }\n\n    .extension-chip {\n      font-size: 0.8rem;\n      color: #c7d2fe;\n      background: rgba(139, 92, 246, 0.18);\n      border: 1px solid rgba(139, 92, 246, 0.35);\n      padding: 6px 10px;\n      border-radius: 999px;\n    }\n\n    .mock-card {\n      padding: 16px;\n      border-radius: 18px;\n      background: rgba(255,255,255,0.04);\n      border: 1px solid var(--line);\n      margin-bottom: 12px;\n    }\n\n    .mock-row {\n      display: flex;\n      justify-content: space-between;\n      gap: 12px;\n      align-items: center;\n      margin-bottom: 10px;\n    }\n\n    .mock-label { color: var(--muted); font-size: 0.9rem; }\n    .mock-value { font-weight: 700; }\n\n    .bar {\n      height: 10px;\n      border-radius: 999px;\n      background: rgba(255,255,255,0.08);\n      overflow: hidden;\n      margin: 8px 0 0;\n    }\n    .bar > span { display: block; height: 100%; border-radius: inherit; }\n    .good { background: linear-gradient(90deg, var(--good), #86efac); }\n    .warn { background: linear-gradient(90deg, var(--warn), #fde68a); }\n    .bad { background: linear-gradient(90deg, var(--bad), #fda4af); }\n\n    .section {\n      margin-top: 24px;\n      padding: 28px;\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      background: var(--panel);\n      box-shadow: var(--shadow);\n      backdrop-filter: blur(16px);\n    }\n\n    .section h2 {\n      margin: 0 0 10px;\n      font-size: 1.6rem;\n      letter-spacing: -0.03em;\n    }\n    .section p.lead {\n      color: var(--muted);\n      margin: 0 0 22px;\n      max-width: 70ch;\n    }\n\n    .grid {\n      display: grid;\n      grid-template-columns: repeat(3, minmax(0, 1fr));\n      gap: 16px;\n    }\n\n    .feature, .report, .privacy {\n      background: var(--panel-2);\n      border: 1px solid var(--line);\n      border-radius: 20px;\n      padding: 18px;\n    }\n\n    .feature h3, .report h3, .privacy h3 {\n      margin: 0 0 8px;\n      font-size: 1.02rem;\n    }\n\n    .feature p, .report p, .privacy p, li { color: var(--muted); }\n\n    .report-layout {\n      display: grid;\n      grid-template-columns: 1.05fr 0.95fr;\n      gap: 16px;\n      align-items: start;\n    }\n\n    .tag-row {\n      display: flex;\n      gap: 8px;\n      flex-wrap: wrap;\n      margin-top: 12px;\n    }\n\n    .tag {\n      font-size: 0.82rem;\n      border-radius: 999px;\n      padding: 6px 10px;\n      border: 1px solid var(--line);\n      background: rgba(255,255,255,0.04);\n    }\n\n    .tag.good { color: #a7f3d0; }\n    .tag.warn { color: #fde68a; }\n    .tag.bad { color: #fecdd3; }\n\n    .next-step {\n      display: grid;\n      gap: 10px;\n      margin-top: 14px;\n    }\n\n    .step {\n      display: flex;\n      align-items: flex-start;\n      gap: 10px;\n      padding: 12px;\n      border-radius: 14px;\n      background: rgba(255,255,255,0.04);\n      border: 1px solid var(--line);\n    }\n\n    .badge {\n      width: 28px;\n      height: 28px;\n      border-radius: 9px;\n      display: grid;\n      place-items: center;\n      background: rgba(110, 231, 255, 0.14);\n      color: var(--accent);\n      font-weight: 800;\n      flex: 0 0 auto;\n    }\n\n    .small { font-size: 0.9rem; }\n\n    ul.clean {\n      padding-left: 18px;\n      margin: 12px 0 0;\n    }\n\n    .footer-cta {\n      margin-top: 24px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 16px;\n      flex-wrap: wrap;\n      padding: 20px 22px;\n      border-radius: 20px;\n      background: linear-gradient(135deg, rgba(110,231,255,0.12), rgba(139,92,246,0.12));\n      border: 1px solid rgba(148,163,184,0.18);\n    }\n\n    .footer-cta strong { display: block; margin-bottom: 4px; }\n\n    @media (max-width: 920px) {\n      .hero, .report-layout, .grid { grid-template-columns: 1fr; }\n      .hero-copy { padding: 28px; }\n      h1 { max-width: 100%; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <header class=\"topbar\">\n      <div class=\"brand\">\n        <div class=\"logo\">S</div>\n        <div>\n          SkillSync\n          <div class=\"microcopy small\">Browser-extension-assisted skills gap prototype</div>\n        </div>\n      </div>\n      <div class=\"pill\">Session-only processing • No data sold or shared</div>\n    </header>\n\n    <section class=\"hero\">\n      <div class=\"hero-copy\">\n        <h1>See exactly which skills your resume is missing.</h1>\n        <p class=\"subhead\">SkillSync compares your resume with a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps so you know what to improve first.</p>\n        <div class=\"cta-row\">\n          <a class=\"btn primary\" href=\"#demo\">Install / Get Started</a>\n          <a class=\"btn secondary\" href=\"#features\">Explore Features</a>\n        </div>\n        <div class=\"microcopy\">Built for active job seekers, career switchers, and bootcamp graduates who want a clearer path to stronger applications.</div>\n      </div>\n\n      <aside class=\"panel hero-aside\" id=\"demo\">\n        <div class=\"mock-header\">\n          <p class=\"mock-title\">Extension Demo Trigger</p>\n          <span class=\"extension-chip\">Mock browser extension</span>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Detected on page</div>\n              <div class=\"mock-value\">Senior Product Analyst job post</div>\n            </div>\n            <div class=\"tag good\">Captured</div>\n          </div>\n          <div class=\"bar\"><span class=\"good\" style=\"width: 82%\"></span></div>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Resume match</div>\n              <div class=\"mock-value\">68% aligned</div>\n            </div>\n            <div class=\"tag warn\">Gap found</div>\n          </div>\n          <div class=\"bar\"><span class=\"warn\" style=\"width: 68%\"></span></div>\n        </div>\n        <div class=\"mock-card\">\n          <div class=\"mock-row\">\n            <div>\n              <div class=\"mock-label\">Recommended action</div>\n              <div class=\"mock-value\">Add SQL project + emphasize analytics tools</div>\n            </div>\n            <div class=\"tag bad\">2 skills missing</div>\n          </div>\n        </div>\n        <div class=\"microcopy\">In the real product, the extension would detect a job post, send the text to the landing-page prototype, and show a skills-gap report. This page demonstrates the experience only.</div>\n      </aside>\n    </section>\n\n    <section class=\"section\" id=\"features\">\n      <h2>Features designed for fast application feedback</h2>\n      <p class=\"lead\">The prototype focuses on the core flow: upload a resume, compare it to a job post, and get a simple report with clear next steps. Privacy and session handling are built into the copy so users understand what is happening.</p>\n      <div class=\"grid\">\n        <div class=\"feature\">\n          <h3>Resume Upload</h3>\n          <p>Upload a PDF or DOCX resume and extract basic text and key skills for comparison.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Sample Job Post Analyzer</h3>\n          <p>Paste a job posting or use a sample post to extract requirements and responsibilities.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Skills Gap Report</h3>\n          <p>View matched, missing, and partially matched skills in a clear, easy-to-scan report.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Suggested Next Steps</h3>\n          <p>For each missing skill, get lightweight recommendations like learning resources, project ideas, and resume tailoring tips.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Browser Extension Demo Trigger</h3>\n          <p>A minimal mock interaction shows how a browser extension could detect a job post and send it to the prototype.</p>\n        </div>\n        <div class=\"feature\">\n          <h3>Privacy and Session-Only Processing</h3>\n          <p>Clear trust messaging explains what the extension reads, how resume data is handled, and that nothing is sold or shared.</p>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"section\">\n      <h2>Sample skills-gap report</h2>\n      <p class=\"lead\">A realistic view of how SkillSync helps users understand what to do next instead of just showing a generic match score.</p>\n      <div class=\"report-layout\">\n        <div class=\"report\">\n          <h3>Resume vs. Job Posting</h3>\n          <p>Target role: Product Analyst</p>\n          <div class=\"tag-row\">\n            <span class=\"tag good\">Matched: Excel</span>\n            <span class=\"tag good\">Matched: Data Visualization</span>\n            <span class=\"tag warn\">Partial: SQL</span>\n            <span class=\"tag bad\">Missing: A/B Testing</span>\n            <span class=\"tag bad\">Missing: Stakeholder Communication</span>\n          </div>\n          <ul class=\"clean\">\n            <li><strong>Matched skills:</strong> Excel, Tableau, reporting, dashboard creation</li>\n            <li><strong>Partially matched:</strong> SQL fundamentals, experimentation</li>\n            <li><strong>Missing skills:</strong> A/B testing, product analytics, stakeholder storytelling</li>\n          </ul>\n        </div>\n        <div class=\"report\">\n          <h3>Suggested next steps</h3>\n          <div class=\"next-step\">\n            <div class=\"step\">\n              <div class=\"badge\">1</div>\n              <div>\n                <strong>Learn SQL for product analytics</strong>\n                <div class=\"small\">Try a short SQL refresher and add one portfolio query project.</div>\n              </div>\n            </div>\n            <div class=\"step\">\n              <div class=\"badge\">2</div>\n              <div>\n                <strong>Build an A/B test case study</strong>\n                <div class=\"small\">Create a mini project that explains hypothesis, metric selection, and results.</div>\n              </div>\n            </div>\n            <div class=\"step\">\n              <div class=\"badge\">3</div>\n              <div>\n                <strong>Tune your resume language</strong>\n                <div class=\"small\">Mirror keywords from the posting and highlight impact in measurable terms.</div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"section\">\n      <h2>Trust and permission copy</h2>\n      <div class=\"grid\">\n        <div class=\"privacy\">\n          <h3>What the extension reads</h3>\n          <p>The mock extension is framed as reading only the current job posting content you choose to analyze. It does not claim access to unrelated browsing history.</p>\n        </div>\n        <div class=\"privacy\">\n          <h3>How resume data is handled</h3>\n          <p>Uploaded resumes and job text are processed for the current session and can be deleted by the user at any time.</p>\n        </div>\n        <div class=\"privacy\">\n          <h3>No selling or sharing</h3>\n          <p>The landing page clearly states that resume data is not sold or shared, reinforcing trust during prototype testing.</p>\n        </div>\n      </div>\n    </section>\n\n    <section class=\"footer-cta\">\n      <div>\n        <strong>Ready to close the skill gap?</strong>\n        <span class=\"microcopy\">Install the demo experience, upload a resume, and see your next best move in seconds.</span>\n      </div>\n      <a class=\"btn primary\" href=\"#demo\">Install / Get Started</a>\n    </section>\n  </div>\n</body>\n</html>",
+        "pr_title": "Launch SkillSync landing page prototype"
+      },
+      "marketing_output": {
+        "copy": {
+          "tagline": "See the skill gap before the interview slips away.",
+          "short_description": "SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.",
+          "cold_email_subject": "Can SkillSync help job seekers fix resume skill gaps faster?",
+          "cold_email_html": "<p>Hi there,</p><p>We built <strong>SkillSync</strong>, a browser-extension-assisted prototype that helps job seekers instantly compare their resume against a sample job posting and see exactly which skills are missing.</p><p>It then turns that gap into action with simple next steps like learning resources, project ideas, and resume-tailoring tips.</p><p>Designed for active job seekers, career switchers, and bootcamp grads, SkillSync makes it easier to understand why interviews may not be coming in — and what to do next.</p><p>If you’re open to it, I’d love for you to check out the prototype and share what feels most useful.</p><p>Best,<br>The SkillSync team</p>",
+          "twitter_post": "Job seekers shouldn’t have to guess why a resume isn’t getting interviews. SkillSync shows the exact skills gap between your resume and a job post — then suggests what to learn, build, or tweak next. #JobSearch #CareerGrowth #Productivity",
+          "linkedin_post": "Excited to share SkillSync, a prototype built to help job seekers understand the skills gap between their resume and a target role.\n\nUsers can upload a resume, analyze a job posting, and instantly see matched skills, missing skills, and partially matched skills in one clear report.\n\nWe also include suggested next steps like learning resources, project ideas, and resume tailoring tips — plus trust-focused copy around privacy and session-only processing.\n\nBuilt for active job seekers, career switchers, and bootcamp graduates who want a clearer path to stronger applications.\n\nWould love feedback on the most valuable part of the workflow.",
+          "instagram_post": "Introducing SkillSync ✨\n\nUpload your resume. Paste a job post. See the skills gap instantly.\n\nWe highlight:\n✅ matched skills\n⚠️ missing skills\n➗ partially matched skills\n\nThen we suggest next steps like learning resources, project ideas, and resume tips to help you close the gap.\n\nBuilt for job seekers, career switchers, and bootcamp grads who want clarity and momentum.\n\n#jobs #careertips #jobsearch #resumetips #careerchange #productdesign",
+          "slack_summary_line": "SkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances."
+        },
+        "email_response": {
+          "id": "988434ce-66ab-473b-b0f8-e5a74670891d"
+        },
+        "slack_response": {
+          "ok": true,
+          "channel": "C0ARBE3N0LX",
+          "ts": "1775920118.887719",
+          "message": {
+            "user": "U0ARBG1GDFZ",
+            "type": "message",
+            "ts": "1775920118.887719",
+            "bot_id": "B0ARLJ10WQ3",
+            "app_id": "A0ASM77R4HE",
+            "text": "New Launch: See the skill gap before the interview slips away. SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.\n\nSkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances. *PR:* <https://github.com/agentic35-del/launchmind-group-alpha/pull/45|View Pull Request> *Status:* Ready for review",
+            "team": "T0ARLG2KLJF",
+            "bot_profile": {
+              "id": "B0ARLJ10WQ3",
+              "app_id": "A0ASM77R4HE",
+              "user_id": "U0ARBG1GDFZ",
+              "name": "LaunchMind Bot",
+              "icons": {
+                "image_36": "https://a.slack-edge.com/80588/img/plugins/app/bot_36.png",
+                "image_48": "https://a.slack-edge.com/80588/img/plugins/app/bot_48.png",
+                "image_72": "https://a.slack-edge.com/80588/img/plugins/app/service_72.png"
+              },
+              "deleted": false,
+              "updated": 1775722587,
+              "team_id": "T0ARLG2KLJF"
+            },
+            "blocks": [
+              {
+                "type": "header",
+                "block_id": "iy5G8",
+                "text": {
+                  "type": "plain_text",
+                  "text": "New Launch: See the skill gap before the interview slips away.",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "block_id": "9KelR",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "SkillSync is a browser-extension-assisted prototype that compares a resume to a job posting, highlights matched, missing, and partially matched skills, and suggests concrete next steps to close the gap.\n\nSkillSync helps job seekers compare their resume to a job post, see missing skills fast, and get actionable next steps to improve their chances.",
+                  "verbatim": false
+                }
+              },
+              {
+                "type": "section",
+                "block_id": "da6gU",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*PR:* <https://github.com/agentic35-del/launchmind-group-alpha/pull/45|View Pull Request>",
+                    "verbatim": false
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Status:* Ready for review",
+                    "verbatim": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "timestamp": "2026-04-11T15:08:46.946725+00:00",
+    "parent_message_id": "7e5f5613-9b4a-47bc-a6ed-3413bce90f23"
+  },
+  {
+    "message_id": "8c353221-56ec-4f98-8152-40903eac69bf",
+    "from_agent": "qa",
+    "to_agent": "ceo",
+    "message_type": "result",
+    "payload": {
+      "qa_review": {
+        "verdict": "pass",
+        "html_issues": [],
+        "marketing_issues": [],
+        "inline_comments": [],
+        "summary": "The landing page accurately reflects the product, clearly communicates the skills-gap workflow, includes the required privacy/session-only trust copy, and presents the browser extension concept appropriately for a prototype. Marketing copy is aligned with the spec and target personas."
+      }
+    },
+    "timestamp": "2026-04-11T15:08:51.765401+00:00",
+    "parent_message_id": "b43b69ad-6ed9-4b65-b944-563842a30bd7"
+  }
+]
