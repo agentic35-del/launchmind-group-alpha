@@ -1,8 +1,0 @@
-_pycache_/
-*.pyc
-.env
-.venv/
-venv/
-.logs/
-message_history.json
-message_history.jsonl
