@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkillSync - Close Your Skill Gaps and Land Your Dream Job</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+      color: white;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 960px;
+      margin: 3rem auto 6rem;
+      padding: 0 1.5rem;
+    }
+    section.features {
+      margin-bottom: 4rem;
+    }
+    section.features h2,
+    section.report h2,
+    section.extension h2 {
+      font-weight: 600;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: #111827;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.3rem;
+    }
+    ul.feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem 2.5rem;
+    }
+    ul.feature-list li {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    ul.feature-list li:hover {
+      box-shadow: 0 6px 15px rgb(59 130 246 / 0.3);
+    }
+    ul.feature-list li h3 {
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin: 0 0 0.5rem;
+      color: #2563eb;
+    }
+    ul.feature-list li p {
+      font-size: 0.925rem;
+      color: #374151;
+      margin: 0;
+    }
+    .extension {
+      background: #e0e7ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 2px 10px rgb(99 102 241 / 0.25);
+    }
+    .extension h2 {
+      margin-top: 0;
+    }
+    .ext-frame {
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      max-width: 720px;
+      margin: 1rem auto 0;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+    }
+    .ext-header {
+      background: #4f46e5;
+      color: white;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ext-header .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+    .ext-header .circle.yellow {
+      background: #facc15;
+    }
+    .ext-header .circle.green {
+      background: #22c55e;
+    }
+    .ext-content {
+      padding: 1rem 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+    .job-posting {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .job-posting h3 {
+      margin: 0 0 0.3rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #2563eb;
+    }
+    .job-posting p {
+      margin: 0 0 0.15rem;
+      font-size: 0.875rem;
+      color: #4b5563;
+    }
+    .skills-list {
+      margin: 0.5rem 0 0 0;
+      padding-left: 1rem;
+      color: #1e40af;
+      font-weight: 600;
+      font-size: 0.9rem;
+      list-style-type: disc;
+    }
+    section.report {
+      background: white;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.05);
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section.report h2 {
+      margin-top: 0;
+      color: #1f2937;
+    }
+    .report-intro {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .missing-skills {
+      font-weight: 600;
+      color: #dc2626;
+      margin-bottom: 1rem;
+    }
+    .recommendations {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #2563eb;
+    }
+    .cta-container {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-btn {
+      background: #4f46e5;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 0.85rem 3rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgb(79 70 229 / 0.4);
+    }
+    .cta-btn:hover,
+    .cta-btn:focus {
+      background: #4338ca;
+      outline: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section.features ul.feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SkillSync: Close Your Skill Gaps and Land Your Dream Job</h1>
+    <p>SkillSync helps job seekers identify and close skill gaps by analyzing job postings in real-time and comparing them against their resume, providing personalized actionable insights to enhance their employability.</p>
+  </header>
+  <main>
+    <section class="extension" aria-label="Browser Extension Product Mock">
+      <h2>How SkillSync Works in Your Browser</h2>
+      <div class="ext-frame" aria-label="Browser extension interface mockup">
+        <div class="ext-header" aria-live="polite">
+          <span class="circle red" aria-hidden="true"></span>
+          <span class="circle yellow" aria-hidden="true"></span>
+          <span class="circle green" aria-hidden="true"></span>
+          <span>SkillSync Extension</span>
+        </div>
+        <div class="ext-content">
+          <div class="job-posting" aria-label="Detected Job Posting">
+            <h3>Front-End Developer - Tech Innovations</h3>
+            <p><strong>Location:</strong> Remote</p>
+            <p><strong>Required Skills:</strong></p>
+            <ul class="skills-list">
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>CSS</li>
+              <li>Web Accessibility</li>
+            </ul>
+          </div>
+          <div class="job-posting" aria-label="Detected Job Posting">
+            <h3>UI/UX Designer - Creative Corp</h3>
+            <p><strong>Location:</strong> New York, NY</p>
+            <p><strong>Required Skills:</strong></p>
+            <ul class="skills-list">
+              <li>Figma</li>
+              <li>Adobe XD</li>
+              <li>Prototyping</li>
+              <li>User Research</li>
+            </ul>
+          </div>
+          <p><em>SkillSync automatically detects these job postings as you browse and analyzes the skills needed.</em></p>
+        </div>
+      </div>
+    </section>
+    <section class="features" aria-label="Product Features">
+      <h2>Key Features</h2>
+      <ul class="feature-list">
+        <li>
+          <h3>Job Posting Monitoring</h3>
+          <p>Detect and extract job postings data from LinkedIn, Indeed, and Glassdoor as you browse.</p>
+        </li>
+        <li>
+          <h3>Skills Extraction</h3>
+          <p>Automatically identify and extract required skills from job postings using NLP techniques.</p>
+        </li>
+        <li>
+          <h3>Resume Upload and Parsing</h3>
+          <p>Upload your resume and SkillSync extracts your current skills to compare.</p>
+        </li>
+        <li>
+          <h3>Skills Gap Analysis</h3>
+          <p>Compare job posting skills with your resume to identify exactly what skills are missing.</p>
+        </li>
+        <li>
+          <h3>Personalized Skill-Gap Report</h3>
+          <p>Get detailed reports showing missing skills along with tailored recommendations on how to learn them.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="report" aria-label="Sample Skill-Gap Report">
+      <h2>Sample Skill-Gap Report</h2>
+      <p class="report-intro">After analyzing your resume versus job requirements, SkillSync found these missing skills:</p>
+      <ul class="missing-skills" aria-live="polite">
+        <li>React</li>
+        <li>Web Accessibility</li>
+      </ul>
+      <p class="recommendations">Recommended Learning Resources:</p>
+      <ul>
+        <li><a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener noreferrer">Official React Tutorial</a></li>
+        <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">WAI Web Accessibility Fundamentals</a></li>
+      </ul>
+      <p><em>Use these actionable insights to close your skill gaps and boost your chances of landing the job.</em></p>
+    </section>
+    <div class="cta-container">
+      <button class="cta-btn" aria-label="Install SkillSync extension">Get Started – Install SkillSync</button>
+    </div>
+  </main>
+  <footer>
+    &copy; 2024 SkillSync. Empowering your career growth.
+  </footer>
+</body>
+</html>
