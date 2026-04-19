@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SkillSync - Close Your Skill Gaps, Land Your Dream Job</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f9fafb;
+    color: #1f2937;
+    line-height: 1.6;
+  }
+  header {
+    background: #3b82f6;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: white;
+  }
+  header h1 {
+    font-size: 2.75rem;
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+  header p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  main {
+    max-width: 960px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+  }
+  section.features {
+    margin-top: 3rem;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+  .features-list {
+    display: grid;
+    gap: 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .feature-item {
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    border-left: 5px solid #3b82f6;
+    transition: box-shadow 0.3s ease;
+  }
+  .feature-item:hover {
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+  }
+  .feature-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2563eb;
+  }
+  section.mock {
+    margin-top: 4rem;
+  }
+  .browser-frame {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.1);
+  }
+  .browser-header {
+    background: #e5e7eb;
+    border-bottom: 1px solid #d1d5db;
+    border-radius: 8px 8px 0 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .browser-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .browser-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .close-btn {
+    background: #ef4444;
+  }
+  .minimize-btn {
+    background: #fbbf24;
+  }
+  .maximize-btn {
+    background: #34d399;
+  }
+  .browser-address {
+    flex-grow: 1;
+    background: white;
+    border: 1px solid #d1d5db;
+    height: 24px;
+    border-radius: 4px;
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .mock-content {
+    padding: 1rem 2rem 2rem;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+  .mock-headline {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  .report-summary {
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: inset 0 0 6px rgb(0 0 0 / 0.05);
+  }
+  .report-section {
+    margin-bottom: 1rem;
+  }
+  .report-section-title {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+  .skills-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0;
+  }
+  .skills-list li {
+    margin-bottom: 0.3rem;
+  }
+  .highlight {
+    font-weight: 700;
+    color: #dc2626;
+  }
+  .recommendation {
+    background: #dbf4ff;
+    border-left: 4px solid #3b82f6;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: #1e40af;
+  }
+  .cta-container {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .btn-install {
+    background: #3b82f6;
+    color: white;
+    padding: 1rem 2.25rem;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(59 130 246 / 0.6);
+    transition: background-color 0.3s ease;
+  }
+  .btn-install:hover {
+    background: #2563eb;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    border-top: 1px solid #e5e7eb;
+  }
+  @media (max-width: 640px) {
+    header h1 {
+      font-size: 2rem;
+    }
+    header p {
+      font-size: 1rem;
+    }
+    main {
+      margin: 1.5rem auto 3rem;
+    }
+    .mock-content {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>SkillSync</h1>
+  <p>Helps job seekers identify skill gaps by analyzing job postings in real-time and comparing them to their resumes, enabling targeted skill development for better job opportunities.</p>
+</header>
+<main>
+  <section class="mock">
+    <div class="browser-frame" role="img" aria-label="Mockup of SkillSync browser extension interface showing skills-gap report">
+      <div class="browser-header">
+        <div class="browser-buttons">
+          <span class="browser-button close-btn" aria-hidden="true"></span>
+          <span class="browser-button minimize-btn" aria-hidden="true"></span>
+          <span class="browser-button maximize-btn" aria-hidden="true"></span>
+        </div>
+        <div class="browser-address" aria-label="Browser address bar">linkedin.com/jobs/view/software-engineer</div>
+      </div>
+      <div class="mock-content">
+        <h3 class="mock-headline">SkillSync Skills-Gap Report</h3>
+        <div class="report-summary">
+          <div class="report-section">
+            <div class="report-section-title">Job Posting Skills Detected:</div>
+            <ul class="skills-list">
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>REST APIs</li>
+              <li>TypeScript</li>
+              <li>Docker</li>
+            </ul>
+          </div>
+          <div class="report-section">
+            <div class="report-section-title">Your Resume Skills:</div>
+            <ul class="skills-list">
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>HTML &amp; CSS</li>
+              <li>REST APIs</li>
+            </ul>
+          </div>
+          <div class="report-section">
+            <div class="report-section-title">Missing Skills:</div>
+            <ul class="skills-list">
+              <li><span class="highlight">Node.js</span></li>
+              <li><span class="highlight">TypeScript</span></li>
+              <li><span class="highlight">Docker</span></li>
+            </ul>
+          </div>
+          <div class="report-section recommendation">
+            <strong>Recommendation:</strong> To improve your job prospects for this role, consider upskilling in <em>Node.js</em>, <em>TypeScript</em>, and <em>Docker</em>. Check out guided courses and hands-on tutorials available on popular learning platforms.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="features" aria-labelledby="features-heading">
+    <h2 id="features-heading">Key Features</h2>
+    <div class="features-list">
+      <article class="feature-item">
+        <h3 class="feature-name">Job Posting Skill Extraction</h3>
+        <p>Automatically detect and extract required skills from job postings on LinkedIn, Indeed, and Glassdoor as you browse.</p>
+      </article>
+      <article class="feature-item">
+        <h3 class="feature-name">Resume Upload and Parsing</h3>
+        <p>Upload your resume to let SkillSync parse and extract your existing skills for direct comparison with job listings.</p>
+      </article>
+      <article class="feature-item">
+        <h3 class="feature-name">Skills-Gap Report Generation</h3>
+        <p>Receive personalized reports highlighting missing skills and actionable recommendations to close those gaps.</p>
+      </article>
+      <article class="feature-item">
+        <h3 class="feature-name">Landing Page Dashboard</h3>
+        <p>Access your skills-gap report directly from the extension’s landing page, ensuring easy and quick review.</p>
+      </article>
+    </div>
+  </section>
+  <section class="cta-container">
+    <button class="btn-install" aria-label="Get started with SkillSync extension">Get Started with SkillSync</button>
+  </section>
+</main>
+<footer>
+  &copy; 2024 SkillSync. All rights reserved.
+</footer>
+</body>
+</html>
